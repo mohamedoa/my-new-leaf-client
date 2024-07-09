@@ -1,0 +1,127 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.modal {
+  background-color: white;
+  z-index: 100000;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  @include tablet {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    width: 42rem;
+    height: 18.5rem;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    border-radius: 0.25rem;
+    padding-bottom: 3rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__close {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    padding-block: 0;
+    padding-inline: 0;
+    align-self: flex-end;
+    height: 1.5rem;
+
+    &-image {
+      height: 100%;
+    }
+  }
+
+  &__header {
+    padding: 1.5rem 0;
+
+    @include tablet {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  &__body {
+    font-size: 0.938rem;
+    line-height: 1.625rem;
+    color: black;
+
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.75rem;
+      padding: 0 2rem;
+    }
+  }
+
+  &__button {
+    padding: 0 1rem;
+    height: 2.25rem;
+    flex-grow: 1;
+    border-radius: 1.25rem;
+    border: none;
+    cursor: pointer;
+
+    @include tablet {
+      flex-grow: 0;
+    }
+
+    &--cancel {
+      background-color: green;
+      color: black;
+      border: 1px solid #fc9;
+
+      &:hover {
+        color: blue;
+        border-color: blue;
+      }
+    }
+
+    &--delete {
+      background-color: red;
+      color: white;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      @include tablet {
+        justify-content: flex-end;
+        padding: 0 2rem;
+      }
+    }
+  }
+}
+
+.overlay {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(19, 24, 44, 0.5);
+}
