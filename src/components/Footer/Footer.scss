@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  height: 5rem;
+  width: 100vw;
+  margin: 0;
+  z-index: 10000;
+  background-color: #ddfdc9;
+  position: fixed;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 1rem;
+    list-style: none;
+  }
+
+  &__link {
+    color: #2f4858;
+    font-weight: 600;
+    transition: color 0.4s;
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

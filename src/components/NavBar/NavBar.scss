@@ -25,10 +25,10 @@
     font-weight: 600;
     transition: color 0.4s;
     text-decoration: none;
-  }
 
-  &__link:hover {
-    color: black;
+    &:hover {
+      color: black;
+    }
   }
 }
 
