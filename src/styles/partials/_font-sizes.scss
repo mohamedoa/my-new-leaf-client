@@ -1,0 +1,56 @@
+@use "./mixins" as *;
+
+//Page Header
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+
+  @include tablet {
+    font-size: 2.063rem;
+    line-height: 2.75rem;
+  }
+}
+
+//Section Header
+h2 {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+}
+
+//Subheader
+h3 {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+//Body copy
+p {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+//Labels and Buttons
+button,
+label {
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+
+  @include tablet {
+    font-size: 0.75rem;
+  }
+}

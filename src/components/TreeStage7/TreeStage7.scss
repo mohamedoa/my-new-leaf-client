@@ -1,0 +1,47 @@
+.tree-stage-7 {
+  position: relative;
+  width: 18rem;
+  height: 20rem;
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__trunk {
+    fill: brown;
+  }
+
+  &__leaf {
+    fill: green;
+  }
+
+  &__glow {
+    animation: glow 1.5s ease-in-out;
+  }
+
+  &:not(.tree-stage-7__glow) {
+    animation: growth 2s ease-in-out;
+  }
+
+  @keyframes glow {
+    0% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.5);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes growth {
+    0% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

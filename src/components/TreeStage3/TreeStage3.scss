@@ -1,0 +1,27 @@
+.tree-stage-3 {
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  &__trunk {
+    fill: brown;
+    transform-origin: center bottom;
+    animation: grow 1s forwards;
+  }
+
+  &__leaf {
+    fill: green;
+    transform-origin: center bottom;
+    animation: grow 1s forwards;
+  }
+
+  @keyframes grow {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
