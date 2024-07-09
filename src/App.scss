@@ -1,0 +1,10 @@
+@use "./styles/partials/typography" as *;
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/colors" as *;
+@use "./styles/partials/boilerplate" as *;
+
+body {
+  min-width: 15.313rem;
+  background-color: #f9fff0;
+  position: relative;
+}
