@@ -11,6 +11,7 @@ export default function Community() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [postId, setPostId] = useState("");
+  // const [likes, setLikes] = useState;
 
   const fetchPosts = async () => {
     try {
@@ -43,6 +44,23 @@ export default function Community() {
     event.target.reset();
   };
 
+  const handleLike = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    try {
+      await axios.put(`${API_URL}/api/community/${id}`, {
+        id: id,
+        post_likes: likes,
+      });
+      fetchPosts();
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="posts">
       <DeletePostModal
@@ -55,7 +73,7 @@ export default function Community() {
       <h1 className="posts__header">Let's Root For Each Other</h1>
       <section className="posts__container">
         {posts
-          .sort((a, b) => b.post_likes - a.post_likes)
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
           .map((post) => (
             <article key={post.id} className="post">
               <p>{post.post_description}</p>
@@ -64,7 +82,10 @@ export default function Community() {
               <div className="post__actions">
                 <button
                   className="post__button"
-                  onClick={() => console.log("Like post", post.post_likes)}
+                  onClick={() => {
+                    handleLike();
+                    console.log("Like post", post.post_likes);
+                  }}
                 >
                   Like
                 </button>
