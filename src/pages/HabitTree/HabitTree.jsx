@@ -10,6 +10,8 @@ import TreeStage4 from "../../components/TreeStage4/TreeStage4";
 import TreeStage5 from "../../components/TreeStage5/TreeStage5";
 import TreeStage6 from "../../components/TreeStage6/TreeStage6";
 import TreeStage7 from "../../components/TreeStage7/TreeStage7";
+import WateringButton from "../../components/WateringButton/WateringButton";
+import TreeDetails from "../../components/TreeDetails/TreeDetails";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -20,7 +22,6 @@ export default function HabitTree() {
   const [habit, setHabit] = useState(null);
   const [habitProgress, setHabitProgress] = useState(null);
   const [error, setError] = useState(null);
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const { id } = useParams();
 
@@ -71,48 +72,6 @@ export default function HabitTree() {
     }
   };
 
-  const updateHabitProgress = async () => {
-    try {
-      const { data } = await axios.post(
-        `${API_URL}/api/habits/${id}/progress`,
-        {
-          habit_id: id,
-        }
-      );
-      setCurrentStage(habitProgress.length);
-      fetchHabitProgress();
-    } catch (error) {
-      setError(error);
-    }
-  };
-
-  const handleWatering = () => {
-    setWatering(true);
-    setIsDisabled(true);
-
-    // After watering animation finishes
-    setTimeout(() => {
-      setWatering(false);
-      if (currentStage < 7) {
-        // If current stage is between 0 and 6, increase stage stage to show next tree
-        setCurrentStage(currentStage + 1);
-        setIsDisabled(false);
-      } else {
-        // Instead if growing the tree, make it glow for 1.5s
-        setGlow(true);
-        setTimeout(() => {
-          setGlow(false);
-          setIsDisabled(false);
-        }, 1500);
-      }
-    }, 2000);
-  };
-
-  const handleButtonClick = () => {
-    handleWatering();
-    updateHabitProgress();
-  };
-
   useEffect(() => {
     fetchHabit();
     fetchHabitProgress();
@@ -127,15 +86,19 @@ export default function HabitTree() {
       {error && <p>Error fetching habit.</p>}
       {watering && <WateringAnimation />}
       {renderCurrentStage()}
-      <h2 className="tree__header">{`The ${habit.habit_name} Tree`}</h2>
-      <article className="tree__age">{`${habitProgress.length} Days Old`}</article>
-      <button
-        className="tree__water"
-        onClick={handleButtonClick}
-        disabled={isDisabled}
-      >
-        Water Your Tree
-      </button>
+      <TreeDetails
+        habitName={habit.habit_name}
+        habitProgressLength={habitProgress.length}
+      />
+      <WateringButton
+        fetchHabitProgress={fetchHabitProgress}
+        habitProgress={habitProgress}
+        currentStage={currentStage}
+        setCurrentStage={setCurrentStage}
+        setWatering={setWatering}
+        setGlow={setGlow}
+        setError={setError}
+      />
     </section>
   );
 }
