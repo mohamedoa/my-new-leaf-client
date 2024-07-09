@@ -47,7 +47,7 @@ export default function Community() {
     <main className="posts">
       <DeletePostModal
         open={isOpen}
-        onClose={() => setIsDeleteOpen(false)}
+        onClose={() => setIsOpen(false)}
         fetchPosts={fetchPosts}
         posts={posts}
         id={postId}
@@ -70,7 +70,10 @@ export default function Community() {
                 </button>
                 <button
                   className="post__button"
-                  onClick={() => setIsOpen(true)}
+                  onClick={() => {
+                    setPostId(post.id);
+                    setIsOpen(true);
+                  }}
                 >
                   Delete
                 </button>
