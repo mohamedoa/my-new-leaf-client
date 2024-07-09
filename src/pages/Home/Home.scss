@@ -1,0 +1,62 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.home {
+  margin-top: 5rem;
+  display: flex;
+  height: 77.5vh;
+  flex-direction: column;
+  background-image: url("../../assets/images/tree.png");
+
+  &__container {
+    background-color: rgba($color: #ffff, $alpha: 0.7);
+    padding: 1rem;
+    height: 100%;
+  }
+
+  &__header {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    overflow: scroll;
+
+    @include tablet {
+      gap: 2rem;
+    }
+  }
+
+  &-hero {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    background-color: #cee0cf;
+    border-radius: 0.35rem;
+    padding: 1rem;
+
+    @include tablet {
+      height: 32vh;
+    }
+  }
+
+  &-blog {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30vh;
+    background-color: #cee0cf;
+    border-radius: 0.35rem;
+    padding: 1rem;
+
+    @include tablet {
+      height: 32vh;
+    }
+  }
+}
