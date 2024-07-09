@@ -1,0 +1,62 @@
+.new-habit {
+  &__link {
+    background-color: #2f4858;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &__text {
+    background-color: #2f4858;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border-radius: 100%;
+  }
+}
+
+.garden {
+  padding: 1rem;
+  margin-top: 5rem;
+
+  &__header {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    height: 80vh;
+    overflow: scroll;
+  }
+
+  &-habit {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background-color: #cee0cf;
+    // border-radius: 0.35rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: solid 2px rgba($color: #000000, $alpha: 0.1);
+
+    &__link {
+      text-decoration: none;
+      font-weight: 600;
+      color: black;
+      width: 100%;
+    }
+
+    &__delete {
+      z-index: 100;
+      height: 100%;
+    }
+  }
+}
