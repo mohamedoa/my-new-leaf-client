@@ -1,0 +1,38 @@
+.tree {
+  &__header {
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+
+  &__age {
+    margin: 0.5rem 0;
+    z-index: 10;
+  }
+
+  &__progress {
+    transition: width 1s;
+    background: #cee0cf;
+    border-radius: 100px;
+    z-index: 10;
+    appearance: none;
+
+    &::-webkit-progress-bar {
+      background: #cee0cf;
+      border-radius: 100px;
+    }
+
+    &::-webkit-progress-value {
+      background-color: #2f4858;
+      border-radius: 100px;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      transition: width 2s;
+    }
+  }
+
+  &__wrapper {
+    margin-top: 0.5rem;
+    display: flex;
+    text-align: center;
+  }
+}
