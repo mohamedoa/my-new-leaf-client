@@ -15,10 +15,11 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 5rem;
 }
 
 body {
   min-height: 100vh;
   font-family: "Avenir Next LT Pro", sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }

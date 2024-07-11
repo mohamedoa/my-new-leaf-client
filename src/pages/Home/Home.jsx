@@ -17,13 +17,11 @@ export default function Home() {
             <div className="home-hero__wrapper">
               <p className="home-hero__text">
                 We believe that your growth journey matters, that's why we will
-                plant a tree for you in the amazon rainforest everytime you
+                plant a REAL tree for you with our sponsored farms everytime you
                 mature your tree with us.
               </p>
               <img className="home-hero__image" src={forestIcon} alt="" />
             </div>
-            {/* <div className="home-hero__figure"> */}
-            {/* </div> */}
           </article>
           <article className="home-blog">
             <h2 className="home-blog__header">Fun Fact of The day</h2>

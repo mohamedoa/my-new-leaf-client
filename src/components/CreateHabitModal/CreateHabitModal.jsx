@@ -38,7 +38,6 @@ export default function CreateHabitModal({ open, onClose, fetchHabits }) {
           </button>
           <h1 className="modal__header">New Habit</h1>
           <form onSubmit={handleUpload} className="modal__body">
-            <label htmlFor="item_name">Habit Name</label>
             <input
               type="text"
               className="ea-form__input"

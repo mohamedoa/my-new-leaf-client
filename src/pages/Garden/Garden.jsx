@@ -48,34 +48,36 @@ export default function Garden() {
         habits={habits}
         id={habitId}
       />
-      <header className="garden__header">
-        <h1 className="garden__title">Garden</h1>
-        <button className="new-habit__link" onClick={() => setIsOpen(true)}>
-          <div className="new-habit__text">+</div>
-        </button>
-      </header>
-      <section className="garden-body">
-        {error && <p>Error fetching habits. Please try again later.</p>}
+      <div className="garden__container">
+        <header className="garden__header">
+          <h1 className="garden__title">Garden</h1>
+          <button className="new-habit__link" onClick={() => setIsOpen(true)}>
+            <div className="new-habit__text">+</div>
+          </button>
+        </header>
+        <section className="garden-body">
+          {error && <p>Error fetching habits. Please try again later.</p>}
 
-        {habits.map((habit) => {
-          return (
-            <article className="garden-habit" key={habit.id}>
-              <Link className="garden-habit__link" to={`/habits/${habit.id}`}>
-                {habit.habit_name}
-              </Link>
-              <button
-                className="garden-habit__delete"
-                onClick={() => {
-                  setHabitId(habit.id);
-                  setIsDeleteOpen(true);
-                }}
-              >
-                Delete
-              </button>
-            </article>
-          );
-        })}
-      </section>
+          {habits.map((habit) => {
+            return (
+              <article className="garden-habit" key={habit.id}>
+                <Link className="garden-habit__link" to={`/habits/${habit.id}`}>
+                  {habit.habit_name}
+                </Link>
+                <button
+                  className="garden-habit__delete"
+                  onClick={() => {
+                    setHabitId(habit.id);
+                    setIsDeleteOpen(true);
+                  }}
+                >
+                  Delete
+                </button>
+              </article>
+            );
+          })}
+        </section>
+      </div>
     </main>
   );
 }

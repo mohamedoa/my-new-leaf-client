@@ -16,8 +16,8 @@ export default function TreeDetails({
         <article className="tree__wrapper">
           <p className="tree__complete">
             Success! You have built a new habit. <br />
-            <Link className="tree__link" to="">
-              Click here to plant your tee
+            <Link className="tree__link" to="/plant">
+              Click here to plant your tree
             </Link>
           </p>
         </article>

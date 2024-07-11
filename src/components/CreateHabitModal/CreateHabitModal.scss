@@ -60,6 +60,10 @@
     font-size: 0.938rem;
     line-height: 1.625rem;
     color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 16rem;
 
     @include tablet {
       font-size: 1rem;
@@ -81,8 +85,8 @@
     }
 
     &--cancel {
-      background-color: green;
-      color: black;
+      background-color: #2f4858;
+      color: white;
       border: 1px solid #fc9;
 
       &:hover {
@@ -92,8 +96,8 @@
     }
 
     &--delete {
-      background-color: red;
-      color: white;
+      background-color: #cee0cf;
+      color: #2f4858;
 
       &:hover {
         background-color: black;

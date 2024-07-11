@@ -36,12 +36,12 @@ export default function Community() {
         post_description: description,
       });
       fetchPosts();
+      event.target.reset();
       setLoading(false);
     } catch (error) {
       console.error(error);
       setLoading(false);
     }
-    event.target.reset();
   };
 
   const handleLike = async (event) => {

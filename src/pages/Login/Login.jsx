@@ -1,9 +1,16 @@
 import "./Login.scss";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const handleLogin = () => {
-    console.log("Login");
+  const navigate = useNavigate();
+
+  const handleLogin = async (event) => {
+    if (!event.target.username.value || !event.target.password.value) {
+      return false;
+    }
+
+    navigate("/");
   };
 
   return (
@@ -11,23 +18,23 @@ export default function Login() {
       <article className="login__container">
         <h1 className="login__header">Login</h1>
         <form className="form" onSubmit={handleLogin}>
-          <label className="label" htmlFor="login-username">
+          <label className="label" htmlFor="username">
             Username
           </label>
           <input
-            id="login-username"
-            name="login-username"
+            id="username"
+            name="username"
             className="input"
             type="text"
             placeholder="Username"
           />
 
-          <label className="label" htmlFor="login-password">
+          <label className="label" htmlFor="password">
             Password
           </label>
           <input
-            id="login-password"
-            name="login-password"
+            id="password"
+            name="password"
             className="input"
             type="password"
             placeholder="Password"
