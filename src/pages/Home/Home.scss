@@ -2,11 +2,8 @@
 @use "../../styles/partials/colors" as *;
 
 .home {
-  // margin-top: 5rem;
   display: flex;
-  // height: 100%;
   flex-direction: column;
-  // background-image: url("../../assets/images/tree.png");
 
   &__container {
     background-color: rgba($color: #ffff, $alpha: 0.7);
@@ -107,5 +104,9 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: #cee0cf;
+    }
   }
 }

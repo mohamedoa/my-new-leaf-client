@@ -2,10 +2,6 @@
 @use "../../styles/partials/colors" as *;
 
 .tree-form {
-  // margin-top: 5rem;
-  // background-image: url("../../assets/images/tree.png");
-  // height: 78vh;
-
   &__container {
     background-color: rgba($color: #ffff, $alpha: 0.7);
     padding: 1rem;
@@ -25,7 +21,7 @@
     color: black;
 
     &:hover {
-      color: blue;
+      color: #add8e6;
     }
   }
 
@@ -37,6 +33,11 @@
     color: #2f4858;
     background-color: #cee0cf;
     font-size: 0.813rem;
+
+    &:hover {
+      color: #ffff;
+      background-color: #2f4858;
+    }
   }
 }
 

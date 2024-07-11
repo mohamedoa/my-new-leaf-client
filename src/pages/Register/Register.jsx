@@ -9,9 +9,6 @@ export default function Register() {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    // if (event.target.password.value != event.target.confirm.value) {
-    //   return;
-    // }
     try {
       await axios.post(import.meta.env.VITE_API_URL + "/users", {
         username: event.target.email.value,

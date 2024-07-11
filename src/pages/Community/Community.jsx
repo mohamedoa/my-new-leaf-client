@@ -11,7 +11,6 @@ export default function Community() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [postId, setPostId] = useState("");
-  // const [likes, setLikes] = useState;
 
   const fetchPosts = async () => {
     try {
