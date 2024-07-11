@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./TreeDetails.scss";
 import { Link } from "react-router-dom";
 

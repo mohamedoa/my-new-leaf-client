@@ -34,5 +34,13 @@
     margin-top: 0.5rem;
     display: flex;
     text-align: center;
+    z-index: 10;
+  }
+
+  &__link {
+    color: #2f4858;
+    &:hover {
+      color: #cee0cf;
+    }
   }
 }

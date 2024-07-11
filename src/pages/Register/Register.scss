@@ -18,10 +18,11 @@
   &__link {
     text-decoration: none;
     font-weight: 600;
-    color: black;
+    font-size: 0.813rem;
 
     &:hover {
-      color: blue;
+      color: #ffff;
+      background-color: #2f4858;
     }
   }
 
