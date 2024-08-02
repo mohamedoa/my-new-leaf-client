@@ -2,6 +2,7 @@ import "./Register.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Register() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -9,6 +10,7 @@ export default function Register() {
 
   const handleRegister = async (event) => {
     event.preventDefault();
+
     try {
       await axios.post(import.meta.env.VITE_API_URL + "/users", {
         username: event.target.email.value,
