@@ -20,7 +20,9 @@ export default function Home() {
                 plant a REAL tree for you with our sponsored farms everytime you
                 mature your tree with us.
               </p>
-              <img className="home-hero__image" src={forestIcon} alt="" />
+              <div className="home-hero__container">
+                <img className="home-hero__image" src={forestIcon} alt="" />
+              </div>
             </div>
           </article>
           <article className="home-blog">

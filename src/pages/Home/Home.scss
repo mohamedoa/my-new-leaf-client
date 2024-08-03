@@ -53,18 +53,22 @@
       color: #000000;
     }
 
-    @include tablet {
-      height: 32vh;
-    }
-
     &__figure {
       width: 100%;
       overflow: hidden;
     }
 
+    &__container {
+      width: 100%;
+
+      @include tablet {
+        max-height: 24rem;
+      }
+    }
+
     &__image {
       width: 100%;
-      float: right;
+      // float: right;
     }
   }
 
