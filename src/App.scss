@@ -9,17 +9,17 @@
   color: white;
   overflow: hidden;
   min-width: 15.313rem;
-
-  max-width: 768px;
+  max-width: 767px;
 }
 
 body {
-  max-width: 768px;
+  max-width: 767px;
 }
 
 .main {
   margin-top: 5rem;
   width: 100vw;
+  max-width: 767px;
   height: 100vh;
   background-color: #f7e1b5;
   color: black;
