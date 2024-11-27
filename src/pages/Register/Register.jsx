@@ -7,21 +7,23 @@ import axios from "axios";
 export default function Register() {
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleRegister = async (event) => {
     event.preventDefault();
+    const username = event.target.username.value;
+    const password = event.target.password.value;
+    console.log(event.target.username.value);
+    console.log(event.target.password.value);
+    // const confirmPassword = event.target.confirmPassword.value;
+
+    const newUser = { username, password };
 
     try {
-      await axios.post(import.meta.env.VITE_API_URL + "/users", {
-        username: event.target.email.value,
-        password: event.target.password.value,
-      });
-
+      await axios.post(`${API_URL}/api/users/register`, newUser);
       navigate("/login");
-      event.target.reset();
     } catch (error) {
-      setErrorMessage("Please try again");
-      event.target.reset();
+      setErrorMessage("Please try another username");
     }
   };
 

@@ -1,16 +1,34 @@
 import "./Login.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
-export default function Login() {
+export default function Login({ checkUserIsLoggedIn }) {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLogin = async (event) => {
-    if (!event.target.username.value || !event.target.password.value) {
-      return false;
-    }
+    event.preventDefault();
+    const username = event.target.username.value;
+    const password = event.target.password.value;
 
-    navigate("/");
+    const user = { username, password };
+
+    try {
+      const { data } = await axios.post(`${API_URL}/api/users/login`, user);
+
+      sessionStorage.setItem("token", data.token);
+
+      checkUserIsLoggedIn();
+      navigate("/");
+    } catch (error) {
+      if (error.response.data.message === "Incorrect username or password") {
+        return setErrorMessage("Incorrect username or password");
+      }
+    }
   };
 
   return (
@@ -39,6 +57,7 @@ export default function Login() {
             type="password"
             placeholder="Password"
           />
+          {errorMessage && <p className="login__error">{errorMessage}</p>}
           <button className="login__button">LOGIN</button>
         </form>
         <Link className="login__link" to="/register">
