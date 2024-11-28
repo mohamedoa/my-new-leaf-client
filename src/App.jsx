@@ -48,7 +48,7 @@ export default function App() {
           <NavBar
             classname="navigation-bar"
             user={user}
-            checkUserIsLoggedIn={checkUserIsLoggedIn}
+            // checkUserIsLoggedIn={checkUserIsLoggedIn}
           />
           <main className="main">
             <Routes>

@@ -25,8 +25,8 @@ export default function Login({ checkUserIsLoggedIn }) {
       checkUserIsLoggedIn();
       navigate("/");
     } catch (error) {
-      if (error.response.data.message === "Incorrect username or password") {
-        return setErrorMessage("Incorrect username or password");
+      if (!checkUserIsLoggedIn) {
+        setErrorMessage("Incorrect username or password");
       }
     }
   };

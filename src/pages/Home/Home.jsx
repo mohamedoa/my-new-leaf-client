@@ -3,6 +3,8 @@ import forestIcon from "../../assets/images/forest.avif";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  console.log(sessionStorage);
+
   return (
     <main className="home">
       <div className="home__container">
