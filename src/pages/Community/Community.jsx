@@ -62,45 +62,49 @@ export default function Community() {
 
   return (
     <main className="posts">
-      <DeletePostModal
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
-        fetchPosts={fetchPosts}
-        posts={posts}
-        id={postId}
-      />
-      <h1 className="posts__header">Let's Root For Each Other</h1>
-      <section className="posts__container">
-        {posts
-          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-          .map((post) => (
-            <article key={post.id} className="post">
-              <p>{post.post_description}</p>
-              <p>{post.created_at}</p>
-              <p>{`${post.post_likes} likes`}</p>
-              <div className="post__actions">
-                <button
-                  className="post__button"
-                  onClick={() => {
-                    handleLike();
-                    console.log("Like post", post.post_likes);
-                  }}
-                >
-                  Like
-                </button>
-                <button
-                  className="post__button"
-                  onClick={() => {
-                    setPostId(post.id);
-                    setIsOpen(true);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </article>
-          ))}
-      </section>
+      <div className="posts__title">
+        <h1 className="posts__header">Let's Root For Each Other</h1>
+      </div>
+      <div className="posts__wrapper">
+        <DeletePostModal
+          open={isOpen}
+          onClose={() => setIsOpen(false)}
+          fetchPosts={fetchPosts}
+          posts={posts}
+          id={postId}
+        />
+        <section className="posts__container">
+          {posts
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+            .map((post) => (
+              <article key={post.id} className="post">
+                <p>{post.post_description}</p>
+                <p>{post.created_at}</p>
+                <p>{`${post.post_likes} likes`}</p>
+                <div className="post__actions">
+                  <button
+                    className="post__button"
+                    onClick={() => {
+                      handleLike();
+                      console.log("Like post", post.post_likes);
+                    }}
+                  >
+                    Like
+                  </button>
+                  <button
+                    className="post__button"
+                    onClick={() => {
+                      setPostId(post.id);
+                      setIsOpen(true);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </article>
+            ))}
+        </section>
+      </div>
       <form onSubmit={handleUpload} className="community-form">
         <div className="community-form__container">
           <label htmlFor="description" className="community-form__label">
