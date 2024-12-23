@@ -60,6 +60,33 @@ export default function Community() {
     }
   };
 
+  const FormatTime = function (date) {
+    const now = new Date();
+    const diff = now - new Date(date);
+    const seconds = Math.floor(diff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(days / 365);
+
+    const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+
+    if (seconds < 60) {
+      return rtf.format(-seconds, "second");
+    } else if (minutes < 60) {
+      return rtf.format(-minutes, "minute");
+    } else if (hours < 24) {
+      return rtf.format(-hours, "hour");
+    } else if (days < 30) {
+      return rtf.format(-days, "day");
+    } else if (months < 12) {
+      return rtf.format(-months, "month");
+    } else {
+      return rtf.format(-years, "year");
+    }
+  };
+
   return (
     <main className="posts">
       <div className="posts__title">
@@ -79,13 +106,13 @@ export default function Community() {
             .map((post) => (
               <article key={post.id} className="post">
                 <p>{post.post_description}</p>
-                <p>{post.created_at}</p>
+                <p>{FormatTime(post.created_at)}</p>
                 <p>{`${post.post_likes} likes`}</p>
                 <div className="post__actions">
                   <button
                     className="post__button"
                     onClick={() => {
-                      handleLike();
+                      handleLike(post.id);
                       console.log("Like post", post.post_likes);
                     }}
                   >
