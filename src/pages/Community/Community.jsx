@@ -70,20 +70,22 @@ export default function Community() {
     const months = Math.floor(days / 30);
     const years = Math.floor(days / 365);
 
-    const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+    const relativeTimeFormat = new Intl.RelativeTimeFormat("en", {
+      numeric: "auto",
+    });
 
     if (seconds < 60) {
-      return rtf.format(-seconds, "second");
+      return relativeTimeFormat.format(-seconds, "second");
     } else if (minutes < 60) {
-      return rtf.format(-minutes, "minute");
+      return relativeTimeFormat.format(-minutes, "minute");
     } else if (hours < 24) {
-      return rtf.format(-hours, "hour");
+      return relativeTimeFormat.format(-hours, "hour");
     } else if (days < 30) {
-      return rtf.format(-days, "day");
+      return relativeTimeFormat.format(-days, "day");
     } else if (months < 12) {
-      return rtf.format(-months, "month");
+      return relativeTimeFormat.format(-months, "month");
     } else {
-      return rtf.format(-years, "year");
+      return relativeTimeFormat.format(-years, "year");
     }
   };
 
